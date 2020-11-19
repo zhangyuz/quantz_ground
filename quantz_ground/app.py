@@ -1,7 +1,9 @@
 from eve import Eve
 
+from .db_domains import db_domains
+
 SETTINGS = {
-    'DOMAIN': {'us_wei_item': {}},
+    'DOMAIN': db_domains,
     'MONGO_HOST': 'localhost',
     'MONGO_PORT': 27017,
     # MONGO_USERNAME': os.environ.get(...),
@@ -17,12 +19,15 @@ SETTINGS = {
     'ENFORCE_IF_MATCH': False,
     'HATEOAS': False,
     # 修改数据域名称,从 _items 改为 items，避免前端语法检查严格不能使用_开头的变量
-    'ITEMS': 'items',
-    'META': 'meta',
-    'DATE_CREATED': 'created',
-    'ID_FIELD': 'id',  # FIXME: not working, Y?
-    'LAST_UPDATED': 'updated',
-    'ETAG': 'etag',
+    # 'ITEMS': 'items',
+    # 'META': 'meta',
+    # 'DATE_CREATED': 'created',
+    # 'ID_FIELD': 'id',  # FIXME: not working, Y?
+    # 'LAST_UPDATED': 'updated',
+    # 'ETAG': 'etag',
+    'PAGINATION_DEFAULT': 500,
+    'PAGINATION_LIMIT': 1000,
+    # 'OPTIMIZE_PAGINATION_FOR_SPEED': True,
 }
 
 
