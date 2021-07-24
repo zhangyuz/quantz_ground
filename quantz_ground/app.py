@@ -2,6 +2,13 @@ from eve import Eve
 
 from .db_domains import db_domains
 
+import os
+
+
+def isInDocker():
+    return os.environ.get('AM_I_IN_A_DOCKER_CONTAINER', False)
+
+
 SETTINGS = {
     'DOMAIN': db_domains,
     'MONGO_HOST': 'localhost',
@@ -28,6 +35,8 @@ SETTINGS = {
     'PAGINATION_DEFAULT': 10000,
     'PAGINATION_LIMIT': 99999999,
     # 'OPTIMIZE_PAGINATION_FOR_SPEED': True,
+    'RESOURCE_METHODS': ['GET'],
+    'ITEM_METHODS': ['GET']
 }
 
 
@@ -58,4 +67,4 @@ def mnt():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80)
