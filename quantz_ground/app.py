@@ -21,7 +21,8 @@ SETTINGS = {
         # 'eve.render.XMLRenderer'
     ],
     'ALLOW_UNKNOWN': True,
-    'X_DOMAINS_RE': r'.*',
+    # 'X_DOMAINS_RE': r'.*',
+    'X_DOMAINS': [r'*.zhangyuzheng.com'],
     'IF_MATCH': False,
     'ENFORCE_IF_MATCH': False,
     'HATEOAS': False,
